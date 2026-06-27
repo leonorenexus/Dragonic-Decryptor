@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dragonic.decryptor.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/toolsFragment"
+        android:name="com.dragonic.decryptor.ui.tools.ToolsFragment"
+        android:label="Tools"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/analyzerFragment"
+        android:name="com.dragonic.decryptor.ui.analyzer.AnalyzerFragment"
+        android:label="Analyzer"
+        tools:layout="@layout/fragment_analyzer" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.dragonic.decryptor.ui.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/filesFragment"
+        android:name="com.dragonic.decryptor.ui.files.FilesFragment"
+        android:label="Files"
+        tools:layout="@layout/fragment_files" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.dragonic.decryptor.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.dragonic.decryptor.ui.result.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result">
+        <argument
+            android:name="originalData"
+            app:argType="string" />
+        <argument
+            android:name="decryptedData"
+            app:argType="string" />
+        <argument
+            android:name="algorithm"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fileDecryptorFragment"
+        android:name="com.dragonic.decryptor.ui.tools.FileDecryptorFragment"
+        android:label="File Decryptor"
+        tools:layout="@layout/fragment_file_decryptor" />
+
+</navigation>
