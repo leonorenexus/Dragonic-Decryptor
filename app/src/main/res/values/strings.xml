@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dragonic Decryptor</string>
+    <string name="app_tagline">Advanced Decryption Toolkit</string>
+
+    <!-- Nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_analyzer">Analyzer</string>
+    <string name="nav_history">History</string>
+    <string name="nav_files">Files</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Home -->
+    <string name="input_encrypted_data">INPUT ENCRYPTED DATA</string>
+    <string name="paste_encrypted_text">Paste encrypted text or upload file…</string>
+    <string name="decrypt_now">DECRYPT NOW</string>
+    <string name="auto_detect">Auto Detect</string>
+    <string name="upload_file">Upload File</string>
+    <string name="quick_actions">QUICK ACTIONS</string>
+    <string name="view_all">View All</string>
+
+    <!-- Tools -->
+    <string name="decrypt_tools">DECRYPT TOOLS</string>
+    <string name="search_tools">Search decryption tools…</string>
+    <string name="symmetric_decryption">SYMMETRIC DECRYPTION</string>
+    <string name="asymmetric_decryption">ASYMMETRIC DECRYPTION</string>
+    <string name="hash_tools">HASH TOOLS</string>
+    <string name="other_tools">OTHER TOOLS</string>
+
+    <!-- Analyzer -->
+    <string name="analyzer">ANALYZER</string>
+    <string name="analyzing">ANALYZING ENCRYPTED DATA…</string>
+    <string name="auto_detect_title">AUTO DETECT</string>
+    <string name="checking_file_format">Checking file format</string>
+    <string name="detecting_encryption">Detecting encryption type</string>
+    <string name="analyzing_entropy">Analyzing entropy</string>
+    <string name="brute_force_estimation">Brute force estimation</string>
+    <string name="generating_results">Generating results</string>
+    <string name="file_analysis">FILE ANALYSIS</string>
+    <string name="entropy_chart">ENTROPY CHART</string>
+
+    <!-- Result -->
+    <string name="decryption_result">DECRYPTION RESULT</string>
+    <string name="original_data">ORIGINAL ENCRYPTED DATA</string>
+    <string name="decrypted_data">DECRYPTED DATA</string>
+    <string name="decryption_info">DECRYPTION INFO</string>
+    <string name="copy">COPY</string>
+    <string name="share">SHARE</string>
+    <string name="save">SAVE</string>
+    <string name="view_result">VIEW RESULT</string>
+    <string name="save_file">SAVE FILE</string>
+
+    <!-- History -->
+    <string name="history">HISTORY</string>
+    <string name="search_history">Search history…</string>
+    <string name="filter_all">ALL</string>
+    <string name="filter_success">SUCCESS</string>
+    <string name="filter_failed">FAILED</string>
+    <string name="filter_file">FILE</string>
+    <string name="filter_favorite">FAVORITE</string>
+
+    <!-- Files -->
+    <string name="saved_files">SAVED FILES</string>
+    <string name="search_files">Search files…</string>
+
+    <!-- Settings -->
+    <string name="settings">SETTINGS</string>
+    <string name="general">GENERAL</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="auto_save_result">Auto Save Result</string>
+    <string name="save_history">Save History</string>
+    <string name="auto_detect_algorithm">Auto Detect Algorithm</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="language">Language</string>
+    <string name="security">SECURITY</string>
+    <string name="clear_history">Clear History</string>
+    <string name="clear_saved_files">Clear Saved Files</string>
+    <string name="lock_app">Lock App</string>
+    <string name="about">ABOUT</string>
+    <string name="app_version">App Version</string>
+    <string name="developer">Developer</string>
+    <string name="developer_name">Dragonic Team</string>
+    <string name="version_name">1.0.0</string>
+
+    <!-- File Decryptor -->
+    <string name="file_decryptor">FILE DECRYPTOR</string>
+    <string name="select_file">SELECT FILE</string>
+    <string name="change">CHANGE</string>
+    <string name="decryption_method">DECRYPTION METHOD</string>
+    <string name="key_passphrase">KEY / PASSPHRASE</string>
+    <string name="iv_optional">IV (Optional)</string>
+    <string name="decrypt_file">DECRYPT FILE</string>
+    <string name="auto_detect_label">Auto Detect</string>
+
+    <!-- Misc -->
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+    <string name="delete">Delete</string>
+    <string name="favorite">Favorite</string>
+    <string name="no_data">No data available</string>
+    <string name="system_default">System Default</string>
+</resources>
