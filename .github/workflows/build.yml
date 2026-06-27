@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build Release APK
+    name: Build APK
     runs-on: ubuntu-latest
 
     steps:
@@ -22,8 +22,15 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Gradle 8.2.1
+        run: |
+          wget -q https://services.gradle.org/distributions/gradle-8.2.1-bin.zip -O /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /opt/gradle
+          echo "/opt/gradle/gradle-8.2.1/bin" >> $GITHUB_PATH
+          gradle --version
 
       - name: Cache Gradle packages
         uses: actions/cache@v4
@@ -35,8 +42,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew 2>/dev/null || true
+
       - name: Build Debug APK
-        run: ./gradlew assembleDebug
+        run: gradle assembleDebug --no-daemon --stacktrace
+        working-directory: ${{ github.workspace }}
+
+      - name: List APK output
+        run: find . -name "*.apk" -type f
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
@@ -45,9 +59,9 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 30
 
-      - name: Get Tag Name
+      - name: Get Tag
         id: tag
-        run: echo "tag=v1.0.0-$(date +'%Y%m%d%H%M')" >> $GITHUB_OUTPUT
+        run: echo "tag=v1.0.0-$(date +'%Y%m%d-%H%M')" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
@@ -56,19 +70,21 @@ jobs:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: "Dragonic Decryptor ${{ steps.tag.outputs.tag }}"
           body: |
-            ## Dragonic Decryptor - Advanced Decryption Toolkit
+            ## 🐉 Dragonic Decryptor — Advanced Decryption Toolkit
 
-            ### Features
-            - AES / DES / 3DES / Blowfish / RC4 / XOR decryption
-            - Base64, Hex, Binary, ROT13, JWT, URL, HTML decode
-            - Smart analyzer with entropy chart
-            - Full offline - no internet required
-            - History & saved files manager
+            **100% Offline | Dark Neon UI | Android 7.0+**
 
-            ### Install
-            Download the APK and install on Android 7.0+
+            ### ✅ Features
+            - AES-128/192/256, DES, 3DES, Blowfish, RC4, XOR decrypt
+            - Base64, Hex, Binary, Octal, ROT13, JWT, URL, HTML decode
+            - Smart Analyzer with Entropy Chart
+            - Full History & Saved Files Manager
+
+            ### 📲 Install
+            Download the APK → enable "Install unknown apps" → install
           files: app/build/outputs/apk/debug/*.apk
           draft: false
           prerelease: false
+          make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
