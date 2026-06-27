@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HISTORY"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageButton
+            android:id="@+id/btnFilter"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_filter"
+            android:contentDescription="Filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@drawable/ic_search"
+        app:startIconTint="@color/text_secondary"
+        app:boxStrokeColor="@color/glass_border"
+        app:boxBackgroundColor="#0A1525">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search history..."
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="10dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.chip.Chip android:id="@+id/chipAll" android:layout_width="wrap_content" android:layout_height="34dp" android:text="ALL" android:textColor="@color/bg_primary" android:textSize="11sp" android:textStyle="bold" app:chipBackgroundColor="@color/neon_primary" app:chipStrokeWidth="0dp" android:layout_marginEnd="8dp"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipSuccess" android:layout_width="wrap_content" android:layout_height="34dp" android:text="SUCCESS" android:textColor="@color/text_secondary" android:textSize="11sp" app:chipBackgroundColor="@color/bg_card" app:chipStrokeColor="@color/glass_border" app:chipStrokeWidth="1dp" android:layout_marginEnd="8dp"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipFailed" android:layout_width="wrap_content" android:layout_height="34dp" android:text="FAILED" android:textColor="@color/text_secondary" android:textSize="11sp" app:chipBackgroundColor="@color/bg_card" app:chipStrokeColor="@color/glass_border" app:chipStrokeWidth="1dp" android:layout_marginEnd="8dp"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipFile" android:layout_width="wrap_content" android:layout_height="34dp" android:text="FILE" android:textColor="@color/text_secondary" android:textSize="11sp" app:chipBackgroundColor="@color/bg_card" app:chipStrokeColor="@color/glass_border" app:chipStrokeWidth="1dp" android:layout_marginEnd="8dp"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipFavorite" android:layout_width="wrap_content" android:layout_height="34dp" android:text="FAVORITE" android:textColor="@color/text_secondary" android:textSize="11sp" app:chipBackgroundColor="@color/bg_card" app:chipStrokeColor="@color/glass_border" app:chipStrokeWidth="1dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/historyRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="none"/>
+
+    <LinearLayout
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+        <ImageView android:layout_width="64dp" android:layout_height="64dp" android:src="@drawable/ic_history" android:tint="@color/text_hint" android:alpha="0.5"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No history yet" android:textColor="@color/text_hint" android:textSize="16sp" android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+</LinearLayout>

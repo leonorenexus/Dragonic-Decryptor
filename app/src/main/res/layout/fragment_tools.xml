@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DECRYPT TOOLS"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="Settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Search -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@drawable/ic_search"
+        app:startIconTint="@color/text_secondary"
+        app:boxStrokeColor="@color/glass_border"
+        app:boxBackgroundColor="#0A1525"
+        app:hintTextColor="@color/text_secondary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search decryption tools…"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Filter chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAll"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="ALL"
+                android:textColor="@color/bg_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:chipBackgroundColor="@color/neon_primary"
+                app:chipStrokeWidth="0dp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSymmetric"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="SYMMETRIC"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/glass_border"
+                app:chipStrokeWidth="1dp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAsymmetric"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="ASYMMETRIC"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/glass_border"
+                app:chipStrokeWidth="1dp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHash"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="HASH"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/glass_border"
+                app:chipStrokeWidth="1dp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipOther"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="OTHER"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/glass_border"
+                app:chipStrokeWidth="1dp"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Tools RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/toolsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="none"/>
+
+</LinearLayout>

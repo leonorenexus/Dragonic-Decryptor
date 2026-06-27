@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- Header -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="12dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_back"
+                android:contentDescription="Back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DECRYPTION RESULT"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="12dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Original Encrypted Data -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/glass_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ORIGINAL ENCRYPTED DATA"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.1"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageButton
+                        android:id="@+id/btnCopyOriginal"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_copy"
+                        android:contentDescription="Copy"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tvOriginalData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/bg_input"
+                    android:padding="10dp"
+                    android:maxLines="4"
+                    android:ellipsize="end"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Decrypted Data -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/neon_primary"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DECRYPTED DATA"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvDecryptedData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/neon_primary"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/bg_input"
+                    android:padding="10dp"
+                    android:minLines="3"
+                    android:maxLines="10"
+                    android:scrollbars="vertical"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Action Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="14dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCopy"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="COPY"
+                android:textColor="@color/neon_primary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                app:strokeColor="@color/neon_primary"
+                app:icon="@drawable/ic_copy"
+                app:iconTint="@color/neon_primary"
+                app:cornerRadius="10dp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="SHARE"
+                android:textColor="@color/neon_primary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                app:strokeColor="@color/neon_primary"
+                app:icon="@drawable/ic_share"
+                app:iconTint="@color/neon_primary"
+                app:cornerRadius="10dp"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="SAVE"
+                android:textColor="@color/neon_primary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                app:strokeColor="@color/neon_primary"
+                app:icon="@drawable/ic_save"
+                app:iconTint="@color/neon_primary"
+                app:cornerRadius="10dp"/>
+
+        </LinearLayout>
+
+        <!-- Decryption Info Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/glass_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DECRYPTION INFO"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <include android:id="@+id/rowAlgorithm" layout="@layout/item_info_row"/>
+                <include android:id="@+id/rowKey" layout="@layout/item_info_row"/>
+                <include android:id="@+id/rowIv" layout="@layout/item_info_row"/>
+                <include android:id="@+id/rowTime" layout="@layout/item_info_row"/>
+                <include android:id="@+id/rowStatus" layout="@layout/item_info_row"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- View Result / Save File -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="14dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewResult"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="VIEW RESULT"
+                android:textColor="@color/bg_primary"
+                android:textStyle="bold"
+                app:backgroundTint="@color/neon_primary"
+                app:icon="@drawable/ic_eye"
+                app:iconTint="@color/bg_primary"
+                app:cornerRadius="12dp"
+                android:layout_marginEnd="10dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveFile"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="SAVE FILE"
+                android:textColor="@color/bg_primary"
+                android:textStyle="bold"
+                app:backgroundTint="@color/neon_primary"
+                app:icon="@drawable/ic_save"
+                app:iconTint="@color/bg_primary"
+                app:cornerRadius="12dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

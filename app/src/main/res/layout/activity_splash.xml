@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash">
+
+    <!-- Glow pulse circle behind logo -->
+    <View
+        android:id="@+id/glowCircle"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_tool_icon"
+        android:alpha="0.15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVerticalBias="0.38"/>
+
+    <!-- Dragon Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="@dimen/logo_size"
+        android:layout_height="@dimen/logo_size"
+        android:src="@drawable/ic_dragon_logo"
+        android:contentDescription="Dragonic Logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVerticalBias="0.38"/>
+
+    <!-- App Name -->
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DRAGONIC"
+        android:textColor="@color/neon_primary"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.15"
+        app:layout_constraintTop_toBottomOf="@id/logoImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/appSubName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DECRYPTOR"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.3"
+        app:layout_constraintTop_toBottomOf="@id/appName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADVANCED DECRYPTION TOOLKIT"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp"
+        android:letterSpacing="0.2"
+        app:layout_constraintTop_toBottomOf="@id/appSubName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Loading bar -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/loadingBar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:indicatorColor="@color/neon_primary"
+        app:trackColor="#1A3D3A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="80dp"
+        app:trackCornerRadius="4dp"/>
+
+    <TextView
+        android:id="@+id/loadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Initializing secure environment…"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/loadingBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

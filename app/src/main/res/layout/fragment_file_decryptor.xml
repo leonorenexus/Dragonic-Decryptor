@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp" android:paddingTop="16dp" android:paddingBottom="12dp">
+            <ImageButton android:id="@+id/btnBack" android:layout_width="36dp" android:layout_height="36dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_back" android:contentDescription="Back" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FILE DECRYPTOR" android:textColor="@color/text_primary" android:textSize="18sp" android:textStyle="bold" android:letterSpacing="0.05" android:layout_marginStart="12dp" app:layout_constraintStart_toEndOf="@id/btnBack" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Select File Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="0dp" app:strokeColor="@color/glass_border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SELECT FILE" android:textColor="@color/text_secondary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="12dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:padding="12dp">
+                    <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_files" android:tint="@color/neon_primary" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="10dp" app:layout_constraintStart_toEndOf="@id/fileIconPlaceholder" app:layout_constraintEnd_toStartOf="@id/btnChange" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent">
+                        <TextView android:id="@+id/tvSelectedFileName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No file selected" android:textColor="@color/text_primary" android:textSize="14sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvSelectedFileSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnChange" android:layout_width="wrap_content" android:layout_height="36dp" android:text="CHANGE" android:textSize="11sp" android:textColor="@color/bg_primary" android:textStyle="bold" app:backgroundTint="@color/neon_primary" app:cornerRadius="8dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+                    <ImageView android:id="@+id/fileIconPlaceholder" android:layout_width="0dp" android:layout_height="0dp" app:layout_constraintStart_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Decryption Method -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="0dp" app:strokeColor="@color/glass_border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DECRYPTION METHOD" android:textColor="@color/text_secondary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu" app:boxStrokeColor="@color/glass_border" app:boxBackgroundColor="#0A1525">
+                    <AutoCompleteTextView android:id="@+id/methodDropdown" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="none" android:text="AES Decrypt" android:textColor="@color/neon_primary" android:textSize="14sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Key/Passphrase -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="0dp" app:strokeColor="@color/glass_border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="KEY / PASSPHRASE" android:textColor="@color/text_secondary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.Material3.TextInputLayout.OutlinedBox" app:endIconMode="password_toggle" app:boxStrokeColor="@color/glass_border" app:boxBackgroundColor="#0A1525">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etKey" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Enter key or passphrase" android:textColor="@color/neon_primary" android:fontFamily="monospace" android:inputType="textPassword"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.Material3.TextInputLayout.OutlinedBox" app:boxStrokeColor="@color/glass_border" app:boxBackgroundColor="#0A1525" android:layout_marginTop="10dp">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etIv" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="IV (Optional)" android:textColor="@color/neon_primary" android:fontFamily="monospace"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Decrypt Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDecryptFile"
+            android:layout_width="match_parent" android:layout_height="56dp"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="20dp"
+            android:text="DECRYPT FILE"
+            android:textColor="@color/bg_primary" android:textSize="16sp" android:textStyle="bold"
+            app:backgroundTint="@color/neon_primary" app:cornerRadius="12dp"
+            app:icon="@drawable/ic_lock" app:iconTint="@color/bg_primary"/>
+
+        <!-- Result Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardResult"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp" android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="0dp" app:strokeColor="@color/neon_primary" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DECRYPTION RESULT" android:textColor="@color/text_secondary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="12dp"/>
+                <include android:id="@+id/rowStatus" layout="@layout/item_info_row"/>
+                <include android:id="@+id/rowSize" layout="@layout/item_info_row"/>
+                <include android:id="@+id/rowTime" layout="@layout/item_info_row"/>
+                <include android:id="@+id/rowAlgorithm" layout="@layout/item_info_row"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
