@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background layers -->
+    <color name="bg_primary">#0A0E1A</color>
+    <color name="bg_secondary">#0D1220</color>
+    <color name="bg_card">#111827</color>
+    <color name="bg_card_alt">#0F1623</color>
+    <color name="bg_surface">#161D2E</color>
+
+    <!-- Neon Cyan/Green accents -->
+    <color name="neon_primary">#00FFB3</color>
+    <color name="neon_secondary">#00E5FF</color>
+    <color name="neon_green">#39FF14</color>
+    <color name="neon_blue">#00B4FF</color>
+    <color name="neon_purple">#B000FF</color>
+    <color name="neon_dim">#1A3D3A</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8899BB</color>
+    <color name="text_hint">#445566</color>
+    <color name="text_neon">#00FFB3</color>
+
+    <!-- Status -->
+    <color name="status_success">#00FFB3</color>
+    <color name="status_error">#FF3366</color>
+    <color name="status_warning">#FFB800</color>
+    <color name="status_info">#00B4FF</color>
+
+    <!-- Glass / borders -->
+    <color name="glass_border">#1E3A4A</color>
+    <color name="glass_fill">#0D1F2D</color>
+    <color name="divider">#1A2840</color>
+
+    <!-- Overlay -->
+    <color name="overlay_dark">#CC000000</color>
+    <color name="overlay_neon">#1A00FFB3</color>
+
+    <!-- Bottom nav -->
+    <color name="nav_bg">#0D1220</color>
+    <color name="nav_indicator">#1A00FFB3</color>
+
+    <!-- Transparent -->
+    <color name="transparent">#00000000</color>
+</resources>
